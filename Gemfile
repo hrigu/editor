@@ -33,6 +33,11 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootstrap-sass', '~> 3.3.7'
 gem 'devise'
 
+#gem "axlsx" # Rails 4.
+#gem 'axlsx_rails' # xls Files erstellen. Registriert den mimetype 'xlsx'
+gem 'roo' # Excel lesen: import_dienstschluessel_controller
+
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
