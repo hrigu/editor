@@ -1,0 +1,41 @@
+<div class="row">
+  <div class="col-md-6">
+
+    <%= form_for(person) do |f| %>
+        <% if person.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(person.errors.count, "error") %> prohibited this person from being saved:</h2>
+
+              <ul>
+                <% person.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                <% end %>
+              </ul>
+            </div>
+        <% end %>
+
+        <div class="form-group">
+          <%= f.label :first_name %>
+          <%= f.text_field :first_name, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+
+          <%= f.label :family_name %>
+          <%= f.text_field :family_name, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+
+          <%= f.label :lawyer %>
+          <%= f.text_field :lawyer, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+
+          <%= f.label :contact_persons %>
+          <%= f.text_field :contact_persons, class: 'form-control' %>
+        </div>
+
+        <%= f.submit "Save", class: "btn btn-primary" %>
+    <% end %>
+
+  </div>
+</div>

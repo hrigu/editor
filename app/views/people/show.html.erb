@@ -1,0 +1,23 @@
+
+<p>
+  <strong>First name:</strong>
+  <%= @person.first_name %>
+</p>
+
+<p>
+  <strong>Family name:</strong>
+  <%= @person.family_name %>
+</p>
+
+<p>
+  <strong>Lawyer:</strong>
+  <%= @person.lawyer %>
+</p>
+
+<p>
+  <strong>Contact persons:</strong>
+  <%= @person.contact_persons %>
+</p>
+
+<%= link_to 'Edit', edit_person_path(@person) %> |
+<%= link_to 'Back', people_path %>
