@@ -15,4 +15,7 @@
 //= require turbolinks
 
 //= require 'bootstrap'
+
+//=require 'trix'
+
 //= require_tree .

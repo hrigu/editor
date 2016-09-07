@@ -2,6 +2,9 @@
   <div class="col-md-6">
 
     <%= form_for([person, comment]) do |f| %>
+
+
+
         <% if comment.errors.any? %>
             <div id="error_explanation">
               <h2><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
@@ -23,7 +26,8 @@
 
         <div class="form-group">
           <%= f.label :content %>
-          <%= f.text_area :content, cols: 40, rows: 15, class: 'form-control' %>
+          <trix-editor input="comment_content"></trix-editor>
+          <%= f.hidden_field :content %>
         </div>
 
 
