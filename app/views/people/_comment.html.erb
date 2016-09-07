@@ -1,0 +1,5 @@
+<div class="bs-callout bs-callout-info">
+  <h5>Author: <%= comment.author %>, vom <%= comment.created_at.localtime.to_formatted_s(:short) %></h5>
+  <h5>Created by: <%= comment.user.email %></h5>
+  <p><%= comment.content %></p>
+</div>

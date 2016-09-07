@@ -1,0 +1,5 @@
+<h1>New Comment for <%= @person.first_name %></h1>
+
+<%= render 'form', person: @person, comment: @comment %>
+
+<%= link_to 'Back', people_path %>

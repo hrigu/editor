@@ -2,7 +2,7 @@ namespace :export do
 
   desc "Erstellt ein json Objekt mit allen Personen und sichert es unter tmp/people.json"
   task :people_to_json do
-    people = Person.all #Person.where("id < 20")
+    people = Person.where("id < 1000")#Person.all #Person.where("id < 20")
     json = people.to_json
     #target_directory = "tmp/"
     target_directory = "../middleman_sandbox/data/"

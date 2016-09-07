@@ -34,7 +34,8 @@ namespace :import do
   task :import_people_from_excel do
     #File.open("tmp/20160831_liste.xlsx", "w") do |f|
     excel = Roo::Spreadsheet.open('tmp/20160831_liste.xlsx')
-    puts excel.info
+
+    people = []
 
     sheet = excel.sheet(0)
     sheet.each_with_index() do |row, i|
@@ -50,12 +51,12 @@ namespace :import do
           puts "Vorname: #{vornamen.join(', ')}"
           puts "Nachname: #{nachnamen.join(', ')}"
           puts "Titel: #{titel.join(', ')}"
-
-          Person.create!(first_name: vornamen.join(" "), family_name: nachnamen.join(' '), lawyer: titel.join(' ') )
-
-
+          people << {s_n: sn, register_number: registratur, first_name: vornamen.join(" "), family_name: nachnamen.join(' '), lawyer: titel.join(' '), }
       end
     end
+
+    Person.create!(people[1..10])
+
 
   end
 end

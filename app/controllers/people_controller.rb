@@ -67,11 +67,11 @@ class PeopleController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
     def set_person
-      @person = Person.find(params[:id])
+      @person = Person.includes(:comments).find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def person_params
-      params.require(:person).permit(:first_name, :family_name, :lawyer, :contact_persons)
+      params.require(:person).permit(:s_n, :register_number, :first_name, :family_name, :lawyer, :contact_persons)
     end
 end
