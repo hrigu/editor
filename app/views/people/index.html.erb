@@ -2,6 +2,13 @@
   <h1> People
     <small>List of people</small>
   </h1>
+
+
+  <%= link_to(people_path(format: "xlsx"), class: "btn btn-default") do %>
+      <i class="glyphicon glyphicon-arrow-down"></i></i>
+      Als Excel beziehen
+  <% end %>
+
 </div>
 
 <div class="table-responsive">
@@ -30,8 +37,8 @@
           <td><%= person.family_name %></td>
           <td><%= person.lawyer %></td>
           <td><%= person.contact_persons %></td>
-          <td><%= person.created_at.localtime.to_formatted_s(:short)  %></td>
-          <td><%= person.updated_at.localtime.to_formatted_s(:short)  %></td>
+          <td><%= person.created_at.localtime.to_formatted_s(:short) %></td>
+          <td><%= person.updated_at.localtime.to_formatted_s(:short) %></td>
           <td><%= link_to 'Show', person %></td>
           <td><%= link_to 'Edit', edit_person_path(person) %></td>
           <td><%= link_to 'Destroy', person, method: :delete, data: {confirm: 'Are you sure?'} %></td>

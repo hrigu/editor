@@ -1,0 +1,17 @@
+wb = xlsx_package.workbook
+
+wb.styles do |s|
+  title_style = s.add_style b: true, sz: 14
+  bold_style = s.add_style b: true
+  number = s.add_style format_code: "0.00"
+##
+#  Auf jeder Zeile: ma_name, [Arbeitszeit, Zeitkonto1, Zeitkonto2...]
+##
+  wb.add_worksheet(name: "Personen") do |sheet|
+    sheet.add_row(["SN", "Registrationsnummer", "Vorname", "Nachname", "Funktion", ], style: bold_style)
+    @people.each do |p|
+      sheet.add_row([p.s_n, p.register_number, p.first_name, p.family_name, p.lawyer])
+    end
+  end
+
+end

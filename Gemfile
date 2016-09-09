@@ -33,8 +33,9 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootstrap-sass', '~> 3.3.7'
 gem 'devise'
 
-#gem "axlsx" # Rails 4.
-#gem 'axlsx_rails' # xls Files erstellen. Registriert den mimetype 'xlsx'
+gem 'axlsx', '2.1.0.pre'  # Diese Version wegen Probleme mit rubyzip Version
+gem 'axlsx_rails'
+
 gem 'roo' # Excel lesen: import_dienstschluessel_controller
 
 

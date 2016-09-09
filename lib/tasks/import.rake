@@ -55,7 +55,7 @@ namespace :import do
       end
     end
 
-    Person.create!(people[1..10])
+    Person.create!(people)
 
 
   end

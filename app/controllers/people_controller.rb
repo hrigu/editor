@@ -6,8 +6,25 @@ class PeopleController < ApplicationController
   # GET /people
   # GET /people.json
   def index
-    @people = Person.all
+    @people = Person.all.order(:s_n)
+
+    respond_to do |format|
+      format.xlsx {
+        render(
+            xlsx: "index",
+            filename: "Personen_#{Time.zone.now.localtime.to_formatted_s(:excel)}.xlsx",
+            disposition: 'inline'
+        )
+      }
+      format.html {
+        render :index
+      }
+    end
+
+
   end
+
+
 
   # GET /people/1
   # GET /people/1.json
