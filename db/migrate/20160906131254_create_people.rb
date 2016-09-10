@@ -7,6 +7,7 @@ class CreatePeople < ActiveRecord::Migration[5.0]
       t.string :family_name, null: false
       t.string :lawyer, null: false
       t.string :contact_persons
+      t.integer :comments_count
 
       t.timestamps
     end

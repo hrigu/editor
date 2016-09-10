@@ -33,6 +33,8 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.save
+        # Da ein neuer Kommentar erstellt wurde...
+        @person.update(updated_at: DateTime.now)
         format.html { redirect_to @person, notice: 'comment was successfully created.' }
       else
         format.html { render :new }

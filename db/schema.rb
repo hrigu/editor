@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20160907181050) do
     t.string   "family_name",     null: false
     t.string   "lawyer",          null: false
     t.string   "contact_persons"
+    t.integer  "comments_count"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
