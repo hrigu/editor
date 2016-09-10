@@ -16,6 +16,7 @@
 
 //= require 'bootstrap'
 
+//The wysiwyg editor
 //=require 'trix'
 
 //= require_tree .
