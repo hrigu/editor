@@ -38,6 +38,8 @@ gem 'axlsx_rails'
 
 gem 'roo' # Excel lesen: import_dienstschluessel_controller
 
+gem 'simple_form'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
