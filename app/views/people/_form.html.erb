@@ -1,50 +1,30 @@
 <div class="row">
-  <div class="col-md-6">
+  <div class="col-md-offset-3, col-md-6">
 
-    <%= form_for(person) do |f| %>
-        <% if person.errors.any? %>
-            <div id="error_explanation">
-              <h2><%= pluralize(person.errors.count, "error") %> prohibited this person from being saved:</h2>
+    <%= simple_form_for(person,
+                        wrapper: :horizontal_form,
+                        html: {class: 'form-horizontal'},
+                        wrapper_mappings: {
+                                check_boxes: :horizontal_radio_and_checkboxes,
+                                radio_buttons: :horizontal_radio_and_checkboxes,
+                                file: :horizontal_file_input,
+                                boolean: :horizontal_boolean
+                        }) do |f| %>
+        <%= f.error_notification %>
 
-              <ul>
-                <% person.errors.full_messages.each do |message| %>
-                    <li><%= message %></li>
-                <% end %>
-              </ul>
-            </div>
-        <% end %>
+        <%= f.input :s_n%>
 
-        <div class="form-group">
-          <%= f.label :s_n %>
-          <%= f.number_field :s_n, class: 'form-control' %>
-        </div>
-
-        <div class="form-group">
-          <%= f.label :register_number %>
-          <%= f.number_field :register_number, class: 'form-control' %>
-        </div>
+        <%= f.input :register_number %>
+        <%= f.input :first_name%>
+        <%= f.input :family_name%>
+        <%= f.input :lawyer%>
+        <%= f.input :contact_persons%>
 
         <div class="form-group">
-          <%= f.label :first_name %>
-          <%= f.text_field :first_name, class: 'form-control' %>
+          <div class="col-sm-offset-3 col-sm-9">
+            <%= f.button :submit, class: "btn btn-primary" %>
+          </div>
         </div>
-        <div class="form-group">
-
-          <%= f.label :family_name %>
-          <%= f.text_field :family_name, class: 'form-control' %>
-        </div>
-        <div class="form-group">
-
-          <%= f.label :lawyer %>
-          <%= f.text_field :lawyer, class: 'form-control' %>
-        </div>
-        <div class="form-group">
-
-          <%= f.label :contact_persons %>
-          <%= f.text_field :contact_persons, class: 'form-control' %>
-        </div>
-
-        <%= f.submit "Save", class: "btn btn-primary" %>
     <% end %>
 
   </div>
