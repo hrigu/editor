@@ -9,13 +9,12 @@
         <div class="form-group">
           <%= f.label :content %>
           <trix-editor input="comment_content"></trix-editor>
-          <%= f.hidden_field :content %>
+          <%= f.input :content, as: :hidden %>
         </div>
 
-        <%= f.input :content, as: :hidden %>
         <div class="form-group">
 
-            <%= f.button :submit, class: "btn btn-primary" %>
+          <%= f.button :submit, class: "btn btn-primary" %>
         </div>
     <% end %>
 

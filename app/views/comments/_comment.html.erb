@@ -1,0 +1,16 @@
+<div class="bs-callout bs-callout-info">
+
+  <div class="row">
+    <div class="col-md-8">
+      <p><%= comment.content.html_safe %></p>
+    </div>
+    <div class="col-md-4">
+      <h5>Author: <%= comment.author %>, vom <%= comment.created_at.localtime.to_formatted_s(:short) %></h5>
+      <h5>Created by: <%= comment.user.email %></h5>
+
+      <td><%= link_to 'Edit', edit_person_comment_path(comment.person, comment) %></td>
+      <td><%= link_to 'Destroy', [comment.person, comment], method: :delete, data: {confirm: 'Are you sure?'} %></td>
+
+    </div>
+  </div>
+</div>

@@ -22,10 +22,12 @@
     <i class="glyphicon glyphicon-plus"></i> New comment
 <% end %>
 
+<%= render @person.comments %>
+<%# Kurzform für
+<%# @person.comments.each do |comment| %>
+<%# render partial: 'comment', object: comment %>
+<%# end %>
 
-<% @person.comments.each do |comment| %>
-    <%= render partial: 'comment', object: comment %>
-<% end %>
 
 
 
