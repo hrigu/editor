@@ -84,7 +84,7 @@ class PeopleController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
     def set_person
-      @person = Person.includes(:comments).order('comments.id desc').find(params[:id])
+      @person = Person.includes({comments: [:person, :user]}).order('comments.id desc').find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
