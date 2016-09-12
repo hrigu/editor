@@ -42,6 +42,9 @@ gem 'simple_form'
 
 gem "auto_strip_attributes" # Putzt whitespaces vor der Validierung raus
 
+gem "bootstrap-table-rails" #https://github.com/wenzhixin/bootstrap-table/
+
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri

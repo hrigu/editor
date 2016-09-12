@@ -6,9 +6,9 @@ class PeopleController < ApplicationController
   # GET /people
   # GET /people.json
   def index
-    @people = Person.all.order(:s_n)
 
     respond_to do |format|
+      @people = Person.all.order(:s_n)
       format.xlsx {
         render(
             xlsx: "index",
@@ -17,7 +17,19 @@ class PeopleController < ApplicationController
         )
       }
       format.html {
+        @people = Person.all.order(:s_n)
         render :index
+      }
+      format.json {
+        #"sort"=>"s_n", "order"=>"asc", "offset"=>"0", "limit"=>"5"
+        @people = Person.offset(params['offset']).limit(params['limit']).order("#{params['sort']} #{params['order']}")
+
+        render json: {
+            total: Person.count,
+            rows: @people
+
+        }
+        # render :index
       }
     end
 

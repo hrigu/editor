@@ -19,4 +19,6 @@
 //The wysiwyg editor
 //=require 'trix'
 
+//= require bootstrap-table
+
 //= require_tree .
