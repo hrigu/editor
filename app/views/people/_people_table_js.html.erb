@@ -6,32 +6,38 @@
       sortName: 's_n',
       pagination: true,
       sidePagination: 'server',
-      pageSize: 5, // TODO grösser, ist 5 zum Testen
+      pageSize: 20, // TODO grösser, ist 5 zum Testen
       search: true,
+      filterControl: true,
       columns: [
         {
           field: 's_n',
           title: 'SN',
-          sortable: true
+          sortable: true,
+          filterControl: "input"
         }, {
           field: 'register_number',
           title: 'Register Number',
-          sortable: true
+          sortable: true,
+          filterControl: "input"
         }, {
           field: 'first_name',
           title: 'First name',
           sortable: true,
+          filterControl: "input"
         }, {
           field: 'family_name',
           title: 'Family name',
-          sortable: true
+          sortable: true,
+          filterControl: "input"
         }, {
           field: 'contact_persons',
           title: 'Contact'
         }, {
           field: 'lawyer',
           title: 'Lawyer',
-          sortable: true
+          sortable: true,
+          filterControl: "select"
         }, {
           field: 'created_at',
           title: 'Created At'

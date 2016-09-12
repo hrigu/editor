@@ -24,10 +24,16 @@ class PeopleController < ApplicationController
         #"sort"=>"s_n", "order"=>"asc", "offset"=>"0", "limit"=>"5"
 
         search = params['search']
+        filter = params['filter']
+        @people = Person.all
+        if filter.present?
+          filter = JSON.parse filter
+          filter.each do |k, v|
+            @people = @people.where(k => v)
+          end
+        end
         if search.present?
-          @people = Person.where("s_n = ? OR register_number = ? OR first_name LIKE ? OR family_name LIKE ?", "#{search}", "#{search}", "%#{search}%","%#{search}%")
-        else
-          @people = Person.all
+          @people = @people.where("s_n = ? OR register_number = ? OR first_name LIKE ? OR family_name LIKE ?", "#{search}", "#{search}", "%#{search}%", "%#{search}%")
         end
 
         total = @people.count
@@ -45,7 +51,6 @@ class PeopleController < ApplicationController
 
 
   end
-
 
 
   # GET /people/1
@@ -105,12 +110,12 @@ class PeopleController < ApplicationController
   private
 
   # Use callbacks to share common setup or constraints between actions.
-    def set_person
-      @person = Person.includes({comments: [:person, :user]}).order('comments.id desc').find(params[:id])
-    end
+  def set_person
+    @person = Person.includes({comments: [:person, :user]}).order('comments.id desc').find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def person_params
-      params.require(:person).permit(:s_n, :register_number, :first_name, :family_name, :lawyer, :contact_persons)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def person_params
+    params.require(:person).permit(:s_n, :register_number, :first_name, :family_name, :lawyer, :contact_persons)
+  end
 end
