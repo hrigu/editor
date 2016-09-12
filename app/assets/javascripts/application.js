@@ -19,6 +19,7 @@
 //The wysiwyg editor
 //=require 'trix'
 
-//= require bootstrap-table
+//= require bootstrap-table/bootstrap-table
+//= require bootstrap-table/extensions/bootstrap-table-filter-control
 
 //= require_tree .
