@@ -22,10 +22,20 @@ class PeopleController < ApplicationController
       }
       format.json {
         #"sort"=>"s_n", "order"=>"asc", "offset"=>"0", "limit"=>"5"
-        @people = Person.offset(params['offset']).limit(params['limit']).order("#{params['sort']} #{params['order']}")
+
+        search = params['search']
+        if search.present?
+          @people = Person.where("s_n = ? OR register_number = ? OR first_name LIKE ? OR family_name LIKE ?", "#{search}", "#{search}", "%#{search}%","%#{search}%")
+        else
+          @people = Person.all
+        end
+
+        total = @people.count
+
+        @people = @people.offset(params['offset']).limit(params['limit']).order("#{params['sort']} #{params['order']}")
 
         render json: {
-            total: Person.count,
+            total: total,
             rows: @people
 
         }

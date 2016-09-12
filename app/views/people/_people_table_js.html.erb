@@ -7,6 +7,7 @@
       pagination: true,
       sidePagination: 'server',
       pageSize: 5, // TODO grösser, ist 5 zum Testen
+      search: true,
       columns: [
         {
           field: 's_n',
@@ -19,13 +20,18 @@
         }, {
           field: 'first_name',
           title: 'First name',
-          sortable: true
+          sortable: true,
         }, {
           field: 'family_name',
-          title: 'Family name'
+          title: 'Family name',
+          sortable: true
         }, {
           field: 'contact_persons',
           title: 'Contact'
+        }, {
+          field: 'lawyer',
+          title: 'Lawyer',
+          sortable: true
         }, {
           field: 'created_at',
           title: 'Created At'
