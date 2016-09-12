@@ -39,6 +39,8 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
     arel (7.1.1)
+    auto_strip_attributes (2.1.0)
+      activerecord (>= 3.0)
     autoprefixer-rails (6.4.1)
       execjs
     axlsx (2.1.0.pre)
@@ -187,6 +189,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  auto_strip_attributes
   axlsx (= 2.1.0.pre)
   axlsx_rails
   bootstrap-sass (~> 3.3.7)
