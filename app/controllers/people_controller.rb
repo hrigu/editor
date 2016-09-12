@@ -23,7 +23,6 @@ class PeopleController < ApplicationController
       format.json {
         #"sort"=>"s_n", "order"=>"asc", "offset"=>"0", "limit"=>"5"
 
-        search = params['search']
         filter = params['filter']
         @people = Person.all
         if filter.present?
@@ -32,9 +31,10 @@ class PeopleController < ApplicationController
             @people = @people.where(k => v)
           end
         end
-        if search.present?
-          @people = @people.where("s_n = ? OR register_number = ? OR first_name LIKE ? OR family_name LIKE ?", "#{search}", "#{search}", "%#{search}%", "%#{search}%")
-        end
+        # search = params['search']
+        # if search.present?
+        #   @people = @people.where("s_n = ? OR register_number = ? OR first_name LIKE ? OR family_name LIKE ?", "#{search}", "#{search}", "%#{search}%", "%#{search}%")
+        # end
 
         total = @people.count
 
