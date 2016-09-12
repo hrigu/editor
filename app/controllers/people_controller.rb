@@ -52,6 +52,16 @@ class PeopleController < ApplicationController
 
   end
 
+  def lawyers
+    respond_to do |format|
+      format.json {
+        lawyers = {}
+        Person.distinct.pluck(:lawyer).each{|x| lawyers[x] = x}
+        render json: lawyers
+      }
+    end
+  end
+
 
   # GET /people/1
   # GET /people/1.json
@@ -118,4 +128,5 @@ class PeopleController < ApplicationController
   def person_params
     params.require(:person).permit(:s_n, :register_number, :first_name, :family_name, :lawyer, :contact_persons)
   end
+
 end

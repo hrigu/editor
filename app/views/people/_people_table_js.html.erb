@@ -37,13 +37,30 @@
           field: 'lawyer',
           title: 'Lawyer',
           sortable: true,
-          filterControl: "select"
+          filterControl: "select",
+          filterData: "url:people/lawyers.json"
         }, {
           field: 'created_at',
           title: 'Created At'
         }, {
           field: 'comments_count',
-          title: 'Comments'
+          title: 'Comments',
+          sortable: true,
+          formatter: function(value, row, index) {
+            if(value == null){
+              value = 0;
+            }
+            return "<span class='badge'>"+value+"</span>"
+          }
+        }, {
+          field: 'id',
+          title: 'Action',
+          formatter: function(value, row, index) {
+            return "" +
+                "<a href='/people/"+value+"' class='btn btn-info' role='button'>Show</a> " +
+                "<a href='/people/"+value+"/edit' class='btn btn-info' role='button'>Edit</a> " +
+                "<a data-confirm='Are you sure?' rel='nofollow' data-method='delete' href='/people/"+value+"' class='btn btn-info' role='button'>Destroy</a>"
+          }
         }
       ]
     });

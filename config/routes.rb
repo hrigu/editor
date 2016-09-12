@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   resources :people do
     resources :comments
+    collection do
+      get 'lawyers'
+    end
   end
 
   devise_for :users
