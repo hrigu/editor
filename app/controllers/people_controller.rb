@@ -3,6 +3,8 @@ class PeopleController < ApplicationController
   before_action :authenticate_user!
   before_action :set_person, only: [:show, :edit, :update, :destroy]
 
+  LIKE_FILTERS = ['first_name', 'family_name']
+
   # GET /people
   # GET /people.json
   def index
@@ -24,11 +26,17 @@ class PeopleController < ApplicationController
         #"sort"=>"s_n", "order"=>"asc", "offset"=>"0", "limit"=>"5"
 
         filter = params['filter']
+
         @people = Person.all
+
         if filter.present?
           filter = JSON.parse filter
           filter.each do |k, v|
-            @people = @people.where(k => v)
+            if LIKE_FILTERS.include? k
+              @people = @people.where("#{k} LIKE ?",  "%#{v}%")
+            else
+              @people = @people.where(k => v)
+            end
           end
         end
         # search = params['search']
@@ -43,9 +51,7 @@ class PeopleController < ApplicationController
         render json: {
             total: total,
             rows: @people
-
         }
-        # render :index
       }
     end
 
