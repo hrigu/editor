@@ -38,10 +38,10 @@ class App.PeopleController extends Spine.Controller
           sortable: true
           filterControl: 'input'
         }
-        {
-          field: 'contact_persons'
-          title: 'Contact'
-        }
+#        {
+#          field: 'contact_persons'
+#          title: 'Contact'
+#        }
         {
           field: 'lawyer'
           title: 'Lawyer'
