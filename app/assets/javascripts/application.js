@@ -22,4 +22,14 @@
 //= require bootstrap-table
 //= require extensions/bootstrap-table-filter-control
 
+
+
+//Spinejs
+//= require spine/extensions/partial_helper
+//= require spine/spine
+//= require spine/route
+//= require spine/ajax
+//= require spine/manager
+
+
 //= require_tree .

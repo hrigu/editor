@@ -44,6 +44,9 @@ gem "auto_strip_attributes" # Putzt whitespaces vor der Validierung raus
 
 gem "bootstrap-table-rails" #https://github.com/wenzhixin/bootstrap-table/
 
+gem 'mysql2' # db connector
+
+gem "eco" # javascript template engine. Wird mit spine.js gebraucht
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
